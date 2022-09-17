@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('../../assets/fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/Montserrat-Bold.woff') format('woff'),
+    url('../../assets/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat Regular';
+    src: url('../../assets/fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/Montserrat-Regular.woff') format('woff'),
+    url('../../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    width: 1158px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav {
+    justify-content: space-between;
+    display: flex;
+    width: 446px;
+    margin: 0 auto;
+}
+
+.header-nav a {
+    white-space: nowrap;
+    margin: 0 5% 0 5%;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: "Montserrat Regular", serif;
+    font-weight: 400;
+    color: #1F2041;
+    opacity: 0.5;
+    padding: 10px;
+}
+
+.header-button {
+    display: flex;
+    width: 303px;
+    justify-content: space-between;
+    font-family: "Montserrat Regular", serif;
+    font-weight: 700;
+}
+
+.header-button .login {
+    color: #BC9CFF;
+    background-image: url("../../assets/img/button.jpg");
+    width: 87px;
+    height: 34px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 12px;
+}
+
+.header-button .register {
+    width: 196px;
+    height: 34px;
+    color: #FFFFFF;
+    background-image: url("../../assets/img/gradient_button.jpg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 12px;
+}
+
+.nav-buttons {
+    width: 763px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-one {
+    background-image: url("../../assets/img/image 3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*width: 1440px;*/
+    height: 900px;
+}
+
+.hotel-form {
+    background-image: url("../../assets/img/Rectangle.png");
+    background-repeat: no-repeat;
+    height: 424px;
+}
+
+.form {
+    display: flex;
+}
+
+.description-one {
+    display: flex;
+    justify-content: end;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hr-block {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hotel-form p {
+    font-family: "Montserrat Bold", serif;
+    color: #1F2041;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.form input {
+    font-family: "Montserrat Regular", serif;
+    text-transform: uppercase;
+    color: #1F2041;
+    opacity: 0.75;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
