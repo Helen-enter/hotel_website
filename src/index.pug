@@ -1,0 +1,42 @@
+doctype html
+html(lang='ru')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible' content='ie=edge')
+        title Document
+    body
+        .wrapper
+            include ../layouts/header
+            main
+                section.section
+                    .wrapper-section
+                        .hotel-form
+                            p
+                                | Найдём номера под
+                                br
+                                |                         ваши пожелания
+                            .form
+                                .date
+                                    div
+                                        p Прибытие
+                                        label.field-arrival
+                                            input.ui-datepicker(type='text' readonly='' autocomplete='off' value='ДД.ММ.ГГГГ')
+                                    div
+                                        p Выезд
+                                        label.field-departure
+                                            input.ui-datepicker(readonly='' autocomplete='off' placeholder='ДД.ММ.ГГГГ')
+                                .guests
+                                    p гости
+                                    label.field-guests
+                                        input(placeholder='Сколько гостей')
+                                .select-room
+                                    a подобрать номер
+                                    svg.btn-select-room(width='18px' height='18px' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z')
+                        .section-description
+                            p.description
+                                | Лучшие номера для вашей работы,
+                                br
+                                |                         отдыха и просто вдохновения
+            include ../layouts/footer

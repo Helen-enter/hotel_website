@@ -1,68 +1,95 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-
-const devServer = (isDev) => !isDev ? {} : {
-    devServer: {
-        open: true,
-        hot: true,
-        port: 8081,
-    }
-};
 
 const esLintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({extensions: ['ts', 'js']})];
 
-module.exports = ({develop}) => ({
-    mode: develop ? 'development' : 'production',
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+let mode = 'development'
+if (process.env.NODE_ENV === 'production') {
+    mode = 'production'
+}
+console.log(mode + ' mode')
+
+module.exports = {
+    mode: mode,
     entry: {
-        index: './src/index.ts',
+
+        scripts: './src/index.ts',
+        user: './src/user.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         clean: true,
     },
+    devServer: {
+        open: true,
+        static: {
+            directory: './src',
+            watch: true
+        }
+    },
+    devtool: 'source-map',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
     plugins: [
-        ...esLintPlugin(develop),
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
+        ...esLintPlugin(mode === "development"),
         new MiniCssExtractPlugin({
-            filename: './styles/main.css'
-        })
-    ],
+            filename: '[name].[contenthash].css'
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/index.pug"
+        })],
     module: {
         rules: [
             {
-                test: /\.(?:ico|png|jpg|jpeg|svg)$/i,
-                type: 'asset/inline'
-            },
-            {
                 test: /\.html$/i,
-                loader: 'html-loader'
+                loader: "html-loader",
             },
+            // {
+            //     test: /\.[tj]s$/i,
+            //     use: 'ts-loader',
+            //     exclude: /node_modules/,
+            // },
             {
-                test: /\.css$/i,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader'
-                ]
+                    (mode === 'development') ? "style-loader" : MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
             {
-                test: /\.[tj]s$/i,
-                use: 'ts-loader',
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.pug$/,
+                loader: 'pug-loader',
+                exclude: /(node_modules|bower_components)/,
+            },
+            {
+                test: /\.m?js$/,
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.scss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
-                ]
+                use: {
+                    loader: 'babel-loader',
+                    // options: {
+                    //     presets: ['@babel/preset-env']
+                    // }
+                }
             }
         ]
     },
-    resolve: {
+        resolve: {
         extensions: ['.ts', '.js']
     },
-    ...devServer(develop),
-});
+}

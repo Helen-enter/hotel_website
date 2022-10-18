@@ -66,7 +66,7 @@ body {
 
 .header-button .login {
     color: #BC9CFF;
-    background-image: url("../../assets/img/button.jpg");
+    background-image: url("../../assets/img/button.png");
     width: 87px;
     height: 34px;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@ body {
     width: 196px;
     height: 34px;
     color: #FFFFFF;
-    background-image: url("../../assets/img/gradient_button.jpg");
+    background-image: url("../../assets/img/gradient_button.png");
     background-repeat: no-repeat;
     cursor: pointer;
     text-align: center;
