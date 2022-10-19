@@ -16,6 +16,28 @@
   font-style: normal;
 }
 
+.ui-datepicker table {
+  background-color: #FFFFFF;
+}
+
+.ui-datepicker-prev {
+  background-color: wheat;
+  cursor: pointer;
+}
+
+.ui-datepicker-next {
+  background-color: wheat;
+  cursor: pointer;
+}
+
+.ui-datepicker-header {
+  background-color: white;
+}
+
+.ui-helper-clearfix {
+  background-color: #bebed2;
+}
+
 * {
   padding: 0;
   margin: 0;

@@ -13,6 +13,7 @@
   "author": "Elena Safonova",
   "license": "ISC",
   "devDependencies": {
+    "@types/jqueryui": "^1.12.16",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "babel-eslint": "^10.1.0",
@@ -35,12 +36,13 @@
   "dependencies": {
     "@babel/core": "^7.19.3",
     "@types/jquery": "^3.5.14",
-    "@types/jqueryui": "^1.12.16",
     "html-webpack-plugin": "^5.5.0",
     "jquery": "^3.6.0",
     "jquery-ui": "^1.13.2",
     "normalize.css": "^8.0.1",
     "pug": "^3.0.2",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "pug-loader": "^2.4.0",
+    "webpack-jquery-ui": "^2.0.1"
   }
 }
